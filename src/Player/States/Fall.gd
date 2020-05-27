@@ -1,10 +1,7 @@
 extends State
 
 
-export var max_speed = 400.0
-export var acceleration = 30.0
-export var max_fall_speed = 800.0
-export var gravity = 30.0
+export var gravity_multiplier = 1.5
 
 
 func update_movement(velo):
@@ -14,7 +11,6 @@ func update_movement(velo):
 		else:
 			emit_signal("finished", "run")
 	
-	var x = velo.x + get_input_direction() * acceleration
-	x = min(x, max_speed) if x > 0 else max(x, -max_speed)
+	var x = velo.x + get_input_direction() * owner.acceleration
 	
-	return Vector2(x, min(velo.y + gravity, max_fall_speed))
+	return Vector2(x, min(velo.y + gravity_multiplier * owner.gravity, owner.terminal_velo))

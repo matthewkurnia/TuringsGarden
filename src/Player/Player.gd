@@ -3,7 +3,13 @@ extends KinematicBody2D
 
 const NORMAL = Vector2(0, -1)
 
-export var friction = 0.05
+export var friction = 0.1
+export var max_speed = 600.0
+export var acceleration = 100.0
+export var jump_strength = 1000.0
+export var gravity = 30.0
+export var terminal_velo = 800.0
+
 var rotation_transform = Transform2D.IDENTITY
 var rotation_transform_inv = Transform2D.IDENTITY.inverse()
 var velo = Vector2()
