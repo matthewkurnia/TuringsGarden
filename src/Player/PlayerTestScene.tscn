@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Objects/Blocks/TestBlock.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 500, 50 )
@@ -8,13 +9,29 @@ extents = Vector2( 500, 50 )
 [node name="PlayerTestScene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 296, 135 )
+position = Vector2( 455.714, 662.695 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 466, 748 )
+collision_layer = 3
+collision_mask = 3
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 1 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( 1050.56, 659.48 )
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource( 1 )
+
+[node name="Block" parent="." instance=ExtResource( 2 )]
+position = Vector2( 570.515, 311.295 )

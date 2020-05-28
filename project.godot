@@ -9,12 +9,24 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "GravityObject",
+"language": "GDScript",
+"path": "res://src/Objects/Blocks/GravityObject.gd"
+}, {
+"base": "GravityObject",
+"class": "PickableObject",
+"language": "GDScript",
+"path": "res://src/Objects/Blocks/PickableObject.gd"
+}, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
 "path": "res://src/Player/State.gd"
 } ]
 _global_script_class_icons={
+"GravityObject": "",
+"PickableObject": "",
 "State": ""
 }
 
@@ -22,6 +34,10 @@ _global_script_class_icons={
 
 config/name="Le Jardin"
 config/icon="res://icon.png"
+
+[autoload]
+
+PlayerCamera="*res://src/Player/Camera/PlayerCamera.tscn"
 
 [input]
 
@@ -38,6 +54,11 @@ right={
 jump={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+interact={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
  ]
 }
 

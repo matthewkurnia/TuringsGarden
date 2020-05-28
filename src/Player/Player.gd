@@ -18,7 +18,7 @@ onready var state_machine = $StateMachine
 
 
 func _ready():
-	pass # Replace with function body.
+	PlayerCamera.set_target(self)
 
 
 func _physics_process(delta):

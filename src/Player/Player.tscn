@@ -1,16 +1,17 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://src/Player/States/Idle.gd" type="Script" id=1]
-[ext_resource path="res://src/Player/Player.gd" type="Script" id=2]
-[ext_resource path="res://src/Player/StateMachine.gd" type="Script" id=3]
+[ext_resource path="res://src/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://src/Player/StateMachine.gd" type="Script" id=2]
+[ext_resource path="res://src/Player/States/Idle.gd" type="Script" id=3]
 [ext_resource path="res://src/Player/States/Run.gd" type="Script" id=4]
 [ext_resource path="res://src/Player/States/Jump.gd" type="Script" id=5]
 [ext_resource path="res://src/Player/States/Fall.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
 
 [node name="Player" type="KinematicBody2D"]
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -20,11 +21,11 @@ friction = 0.2
 shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 
 [node name="Run" type="Node" parent="StateMachine"]
 script = ExtResource( 4 )
