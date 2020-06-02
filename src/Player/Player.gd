@@ -18,7 +18,7 @@ onready var state_machine = $StateMachine
 
 
 func _ready():
-	PlayerCamera.set_target(self)
+	pass
 
 
 func _physics_process(delta):
@@ -27,6 +27,6 @@ func _physics_process(delta):
 	velo = move_and_slide(rotation_transform * tmp_velo, rotation_transform * NORMAL)
 
 
-func rotate_transform(amount : float) -> void:
+func rotate_transform(amount: float) -> void:
 	rotation_transform = rotation_transform.rotated(amount)
 	rotation_transform_inv = rotation_transform.inverse()

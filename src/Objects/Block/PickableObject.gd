@@ -10,22 +10,13 @@ export var follow_speed = 0.1
 
 
 func _ready():
-	pass # Replace with function body.
+	add_to_group("Pickable")
 
 
 func _physics_process(delta):
 	if picked_up:
 		var target_location = object_to_follow.global_position + follow_offset
 		self.global_position = self.global_position.linear_interpolate(target_location, follow_speed)
-		return
-
-
-func toggle_pick_up(player):
-	if picked_up:
-		drop()
-		return
-	if player:
-		pick_up(player)
 		return
 
 

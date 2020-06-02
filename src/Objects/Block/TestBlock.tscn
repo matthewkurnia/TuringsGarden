@@ -1,8 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://src/Objects/Blocks/PickableObject.gd" type="Script" id=2]
-[ext_resource path="res://src/Objects/Blocks/PickableArea.gd" type="Script" id=3]
+[ext_resource path="res://src/Objects/Block/PickableObject.gd" type="Script" id=2]
+[ext_resource path="res://src/Objects/Block/PickableArea.gd" type="Script" id=3]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
