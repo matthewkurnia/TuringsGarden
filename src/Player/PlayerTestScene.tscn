@@ -38,17 +38,9 @@ shape = SubResource( 1 )
 position = Vector2( 159.989, 638.663 )
 
 [node name="PushableBlock1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 789.435, 513.194 )
+position = Vector2( 839.591, 309.005 )
 
 [node name="CollisionPolygon2D" parent="PushableBlock1" index="0"]
-polygon = PoolVector2Array( 10, 10, 10, -10, -10, -10, -10, 10 )
-
-[node name="PushableBlock2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 788.533, 449.117 )
-
-[node name="CollisionPolygon2D" parent="PushableBlock2" index="0"]
-polygon = PoolVector2Array( 10, 10, 10, -10, -10, -10, -10, 10 )
+polygon = PoolVector2Array( 10, 10, -10, 10, -10, -10, 10, -10 )
 
 [editable path="PushableBlock1"]
-
-[editable path="PushableBlock2"]

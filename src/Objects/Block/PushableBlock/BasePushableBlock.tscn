@@ -12,8 +12,14 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="."]
 
-[node name="PlayerDetect" type="Area2D" parent="."]
+[node name="PushArea" type="Area2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetect"]
-[connection signal="body_entered" from="PlayerDetect" to="." method="_on_PlayerDetect_body_entered"]
-[connection signal="body_exited" from="PlayerDetect" to="." method="_on_PlayerDetect_body_exited"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PushArea"]
+
+[node name="PullArea" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PullArea"]
+[connection signal="body_entered" from="PushArea" to="." method="_on_PushArea_body_entered"]
+[connection signal="body_exited" from="PushArea" to="." method="_on_PushArea_body_exited"]
+[connection signal="body_entered" from="PullArea" to="." method="_on_PullArea_body_entered"]
+[connection signal="body_exited" from="PullArea" to="." method="_on_PullArea_body_exited"]
