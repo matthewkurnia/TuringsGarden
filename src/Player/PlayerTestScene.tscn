@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/Objects/Block/TestBlock.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/Objects/Block/PushableBlock/BasePushableBlock.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 500, 50 )
@@ -33,14 +31,3 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 shape = SubResource( 1 )
-
-[node name="Block" parent="." instance=ExtResource( 2 )]
-position = Vector2( 159.989, 638.663 )
-
-[node name="PushableBlock1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 839.591, 309.005 )
-
-[node name="CollisionPolygon2D" parent="PushableBlock1" index="0"]
-polygon = PoolVector2Array( 10, 10, -10, 10, -10, -10, 10, -10 )
-
-[editable path="PushableBlock1"]

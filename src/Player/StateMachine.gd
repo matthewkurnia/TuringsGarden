@@ -14,8 +14,6 @@ onready var state_map = {
 	"jump": $Jump,
 	"fall": $Fall,
 	"pullinglever": $PullingLever,
-	"pushing": $Pushing,
-	"pulling": $Pulling,
 }
 
 
@@ -32,7 +30,6 @@ func update_movement(velo: Vector2):
 
 
 func change_state(state_name: String):
-	print(state_name)
 	current_state.exit()
 	current_state = state_map[state_name]
 	current_state.enter()

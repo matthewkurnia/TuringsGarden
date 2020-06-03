@@ -9,24 +9,12 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "KinematicBody2D",
-"class": "GravityObject",
-"language": "GDScript",
-"path": "res://src/Objects/Block/GravityObject.gd"
-}, {
-"base": "GravityObject",
-"class": "PickableObject",
-"language": "GDScript",
-"path": "res://src/Objects/Block/PickableObject.gd"
-}, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
 "path": "res://src/Player/State.gd"
 } ]
 _global_script_class_icons={
-"GravityObject": "",
-"PickableObject": "",
 "State": ""
 }
 
