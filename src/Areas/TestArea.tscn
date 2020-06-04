@@ -1,9 +1,44 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Areas/BaseArea.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Objects/DistortionCrystal/DistortionCrystal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Objects/Wall/BaseWall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Test"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1.7411, 0.594604 ),
+"update": 0,
+"values": [ Vector2( 600, 300 ), Vector2( 300, 300 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ Vector2( -3, 0 ) ],
+"method": "set_velo"
+}, {
+"args": [ Vector2( 3, 0 ) ],
+"method": "set_velo"
+} ]
+}
 
 [node name="Game" instance=ExtResource( 1 )]
 
@@ -13,31 +48,39 @@ size = Vector2( 1024, 600 )
 [node name="Node2D" type="Node2D" parent="World/Viewport" index="0"]
 
 [node name="Wall1" parent="World/Viewport/Node2D" index="0" instance=ExtResource( 3 )]
-position = Vector2( 300, 200 )
+position = Vector2( 300, 500 )
 
 [node name="CollisionPolygon2D" parent="World/Viewport/Node2D/Wall1" index="0"]
-polygon = PoolVector2Array( 100, 50, 100, -50, -100, -50, -100, 50 )
+polygon = PoolVector2Array( 500, 50, 500, -50, -100, -50, -100, 50 )
 
 [node name="Sprite" type="Sprite" parent="World/Viewport/Node2D/Wall1" index="1"]
 texture = ExtResource( 4 )
 
 [node name="Wall2" parent="World/Viewport/Node2D" index="1" instance=ExtResource( 3 )]
-position = Vector2( 300, 200 )
+position = Vector2( 100, 500 )
 
 [node name="CollisionPolygon2D" parent="World/Viewport/Node2D/Wall2" index="0"]
 polygon = PoolVector2Array( 50, 100, 50, -100, -50, -100, -50, 100 )
 
 [node name="DistortionCrystal" parent="World/Viewport/Node2D" index="2" instance=ExtResource( 2 )]
-position = Vector2( 600, 200 )
+position = Vector2( 600, 300 )
 
 [node name="Source" parent="World/Viewport/Node2D/DistortionCrystal" index="1"]
-position = Vector2( -300, 0 )
+position = Vector2( 0, 200 )
 
 [node name="CollisionPolygon2D" parent="World/Viewport/Node2D/DistortionCrystal/Source" index="0"]
 polygon = PoolVector2Array( 80, 80, -80, 80, -80, -80, 80, -80 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Viewport/Node2D/DistortionCrystal" index="2"]
+autoplay = "Test"
+playback_speed = 0.5
+anims/Test = SubResource( 1 )
+
 [node name="Camera2D" type="Camera2D" parent="World/Viewport/Node2D" index="3"]
 current = true
+
+[node name="Player" parent="World/Viewport/Node2D" index="4" instance=ExtResource( 5 )]
+position = Vector2( 400, 0 )
 
 [editable path="World/Viewport/Node2D/Wall1"]
 

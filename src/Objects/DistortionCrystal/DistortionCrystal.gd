@@ -3,6 +3,9 @@ extends Node2D
 
 const TARGET_VIEWPORT = preload("SourceViewport.tscn")
 
+var viewport
+var velo = Vector2()
+
 
 func _ready():
 	initialize_viewport()
@@ -10,10 +13,16 @@ func _ready():
 
 func _physics_process(delta):
 	$Projection.set_collision_polygon($Source.get_intersected_polygons())
+	self.global_position += velo
+	viewport.set_camera_position($Source.global_position)
+
+
+func set_velo(new_velo: Vector2) -> void:
+	velo = new_velo
 
 
 func initialize_viewport() -> void:
-	var viewport = TARGET_VIEWPORT.instance()
+	viewport = TARGET_VIEWPORT.instance()
 	var vp_rect = Rect2()
 	for point in $Source.get_collision_polygon():
 		vp_rect = vp_rect.expand(point)

@@ -6,8 +6,6 @@ func set_sprite_texture(texture: ViewportTexture) -> void:
 
 
 func set_collision_polygon(polygons) -> void:
-	if not polygons:
-		return
 	for child in get_children():
 		if child is CollisionPolygon2D:
 			child.queue_free()

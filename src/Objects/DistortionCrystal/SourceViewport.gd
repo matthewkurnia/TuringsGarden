@@ -12,4 +12,5 @@ func _ready():
 
 
 func set_camera_position(global_pos: Vector2) -> void:
+#	set_canvas_transform(Transform2D(0.0, -global_pos))
 	$Camera2D.global_position = global_pos

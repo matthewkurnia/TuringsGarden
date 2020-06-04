@@ -9,12 +9,24 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "Orb",
+"language": "GDScript",
+"path": "res://src/Objects/EnergyOrb/Orb.gd"
+}, {
+"base": "Area2D",
+"class": "OrbSlot",
+"language": "GDScript",
+"path": "res://src/Objects/EnergyOrb/OrbSlot.gd"
+}, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
 "path": "res://src/Player/State.gd"
 } ]
 _global_script_class_icons={
+"Orb": "",
+"OrbSlot": "",
 "State": ""
 }
 
@@ -57,4 +69,5 @@ pick_up={
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"
