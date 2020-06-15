@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
 
+signal direction_changed(curr_direction)
+
 const NORMAL = Vector2(0, -1)
 
 export var friction = 0.1
@@ -25,7 +27,15 @@ func _physics_process(delta):
 	if apply_friction:
 		tmp_velo.x = lerp(tmp_velo.x, 0, friction)
 	velo = move_and_slide(rotation_transform * tmp_velo, rotation_transform * NORMAL)
-	direction = sign(velo.x)
+	update_direction()
+
+
+func update_direction():
+	if sign(velo.x) == 0:
+		return
+	if direction != sign(velo.x):
+		direction = sign(velo.x)
+		emit_signal("direction_changed", direction)
 
 
 func change_state(state_name: String):

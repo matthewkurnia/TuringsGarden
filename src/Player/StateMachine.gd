@@ -7,6 +7,8 @@ var current_state
 var ct_after: float
 var ct_before: float
 
+onready var animation_tree = owner.get_node("AnimationTree")
+
 
 onready var state_map = {
 	"idle": $Idle,
@@ -33,6 +35,7 @@ func change_state(state_name: String):
 	current_state.exit()
 	current_state = state_map[state_name]
 	current_state.enter()
+	animation_tree.update_animation(state_name)
 
 
 func coyote_time_check():
