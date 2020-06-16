@@ -16,3 +16,4 @@ script = ExtResource( 2 )
 script = ExtResource( 3 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Source"]
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
