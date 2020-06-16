@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends KinematicBody2D
 
 
 func set_sprite_texture(texture: ViewportTexture) -> void:

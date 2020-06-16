@@ -15,7 +15,6 @@ func _ready():
 func _physics_process(delta):
 	projection.set_collision_polygon(source.get_intersected_polygons())
 	viewport.set_canvas_transform(Transform2D(0, 0.5*viewport.size - source.global_position))
-#	viewport.set_camera_position($Source.global_position)
 
 
 func initialize_viewport() -> void:
@@ -25,7 +24,6 @@ func initialize_viewport() -> void:
 		vp_rect = vp_rect.expand(point)
 	viewport.size = vp_rect.size
 	viewport.world_2d = get_viewport().world_2d
-	viewport.set_camera_position(source.global_position)
 	get_tree().get_root().call_deferred("add_child", viewport)
 	projection.set_sprite_texture(viewport.get_texture())
 

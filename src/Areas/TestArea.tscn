@@ -15,29 +15,24 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1.7411, 0.594604 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 600, 300 ), Vector2( 300, 300 ) ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
+tracks/1/type = "value"
+tracks/1/path = NodePath("Projection:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ Vector2( -3, 0 ) ],
-"method": "set_velo"
-}, {
-"args": [ Vector2( 3, 0 ) ],
-"method": "set_velo"
-} ]
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -300, 0 ) ]
 }
 
 [node name="Game" instance=ExtResource( 1 )]
@@ -48,7 +43,7 @@ size = Vector2( 1024, 600 )
 [node name="Node2D" type="Node2D" parent="World/Viewport" index="0"]
 
 [node name="Wall1" parent="World/Viewport/Node2D" index="0" instance=ExtResource( 3 )]
-position = Vector2( 300, 500 )
+position = Vector2( 500, 500 )
 
 [node name="CollisionPolygon2D" parent="World/Viewport/Node2D/Wall1" index="0"]
 polygon = PoolVector2Array( 500, 50, 500, -50, -100, -50, -100, 50 )
@@ -80,7 +75,7 @@ anims/Test = SubResource( 1 )
 current = true
 
 [node name="Player" parent="World/Viewport/Node2D" index="4" instance=ExtResource( 5 )]
-position = Vector2( 400, 0 )
+position = Vector2( 100, 0 )
 
 [editable path="World/Viewport/Node2D/Wall1"]
 

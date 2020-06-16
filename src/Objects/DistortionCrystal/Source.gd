@@ -19,6 +19,8 @@ func get_intersected_polygons():
 		if body.is_in_group("duplicatable"):
 			var poly1 = offset_polygon(self.global_position, get_collision_polygon())
 			var poly2 = offset_polygon(body.global_position, body.get_collision_polygon())
+			if not Geometry.intersect_polygons_2d(poly1, poly2):
+				continue
 			var poly3 = offset_polygon(-self.global_position, Geometry.intersect_polygons_2d(poly1, poly2)[0])
 			intersected_polygons.append(poly3)
 	return intersected_polygons
