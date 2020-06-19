@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 100.0
+radius = 32.0
 
 [node name="Orb1" type="Area2D"]
 __meta__ = {

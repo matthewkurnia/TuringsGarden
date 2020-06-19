@@ -1,7 +1,7 @@
 extends State
 
 
-export var gravity_multiplier = 1.5
+export var gravity_multiplier = 0.95
 
 
 func update_movement(velo):
