@@ -3,7 +3,6 @@ extends AnimationTree
 
 var anim_state_machine = get("parameters/playback")
 var direction = 1
-var advance_run = self["parameters/conditions/advance_run"]
 
 
 onready var animated_sprite = owner.get_node("AnimatedSprite")
@@ -25,7 +24,6 @@ func _process(delta):
 
 func update_animation(anim_name: String) -> void:
 	anim_state_machine.travel(anim_name)
-	self["parameters/conditions/advance_run"] = anim_name == "run"
 
 
 func change_direction(new_dir):

@@ -57,25 +57,20 @@ animations = [ {
 "name": "run_turn",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 32 ) ],
+"loop": true,
+"name": "air_turn",
+"speed": 12.0
+}, {
 "frames": [ ExtResource( 8 ), ExtResource( 38 ), ExtResource( 36 ), ExtResource( 37 ) ],
 "loop": false,
 "name": "land",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 19 ), ExtResource( 33 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 21 ), ExtResource( 25 ), ExtResource( 30 ), ExtResource( 24 ), ExtResource( 23 ) ],
-"loop": true,
-"name": "run",
 "speed": 12.0
 }, {
 "frames": [ ExtResource( 29 ), ExtResource( 37 ) ],
 "loop": true,
 "name": "stopping",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 35 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 20 ) ],
-"loop": true,
-"name": "fall",
-"speed": 3.0
 }, {
 "frames": [ ExtResource( 26 ) ],
 "loop": true,
@@ -87,10 +82,15 @@ animations = [ {
 "name": "jump",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 32 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 19 ), ExtResource( 33 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 21 ), ExtResource( 25 ), ExtResource( 30 ), ExtResource( 24 ), ExtResource( 23 ) ],
 "loop": true,
-"name": "air_turn",
+"name": "run",
 "speed": 12.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 35 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "fall",
+"speed": 3.0
 } ]
 
 [sub_resource type="Animation" id=4]
@@ -318,7 +318,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=12]
 length = 0.083
-step = 0.01
+step = 0.083
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -350,7 +350,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.08 ),
+"times": PoolRealArray( 0.083 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -360,6 +360,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=13]
 length = 0.083
+step = 0.083
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:frame")
 tracks/0/interp = 1
@@ -391,7 +392,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.08 ),
+"times": PoolRealArray( 0.083 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -433,7 +434,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.16 ),
+"times": PoolRealArray( 0.166 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -450,35 +451,39 @@ animation = "idle"
 [sub_resource type="AnimationNodeAnimation" id=17]
 animation = "jump"
 
-[sub_resource type="AnimationNodeAnimation" id=19]
+[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "land"
 
-[sub_resource type="AnimationNodeAnimation" id=20]
+[sub_resource type="AnimationNodeAnimation" id=19]
 animation = "run"
 
-[sub_resource type="AnimationNodeAnimation" id=21]
+[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "stop"
 
-[sub_resource type="AnimationNodeAnimation" id=22]
+[sub_resource type="AnimationNodeAnimation" id=21]
 animation = "turn_on_ground"
 
-[sub_resource type="AnimationNodeAnimation" id=23]
+[sub_resource type="AnimationNodeAnimation" id=22]
 animation = "turn_mid_air"
 
-[sub_resource type="AnimationNodeAnimation" id=24]
+[sub_resource type="AnimationNodeAnimation" id=23]
 animation = "turn_on_run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=25]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=26]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=27]
 switch_mode = 2
 auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=28]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=29]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=30]
 switch_mode = 2
@@ -489,14 +494,18 @@ switch_mode = 2
 auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=32]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=33]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=34]
 switch_mode = 2
 auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=37]
 
@@ -506,37 +515,29 @@ auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=39]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=40]
-advance_condition = "advance_run"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=41]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=44]
-
-[sub_resource type="AnimationNodeStateMachine" id=42]
+[sub_resource type="AnimationNodeStateMachine" id=40]
 states/fall/node = SubResource( 15 )
 states/fall/position = Vector2( 827, 61 )
 states/idle/node = SubResource( 16 )
 states/idle/position = Vector2( 445, 129 )
 states/jump/node = SubResource( 17 )
 states/jump/position = Vector2( 712, 427 )
-states/land/node = SubResource( 19 )
+states/land/node = SubResource( 18 )
 states/land/position = Vector2( 110, 71 )
-states/run/node = SubResource( 20 )
+states/run/node = SubResource( 19 )
 states/run/position = Vector2( 305, 458 )
-states/stop/node = SubResource( 21 )
+states/stop/node = SubResource( 20 )
 states/stop/position = Vector2( 289, 249 )
-states/turn_idle/node = SubResource( 22 )
+states/turn_idle/node = SubResource( 21 )
 states/turn_idle/position = Vector2( 609, 151 )
-states/turn_mid_air/node = SubResource( 23 )
-states/turn_mid_air/position = Vector2( 691, 267 )
-states/turn_run/node = SubResource( 24 )
+states/turn_mid_air/node = SubResource( 22 )
+states/turn_mid_air/position = Vector2( 922, 221 )
+states/turn_run/node = SubResource( 23 )
 states/turn_run/position = Vector2( 507, 391 )
-transitions = [ "idle", "fall", SubResource( 25 ), "fall", "land", SubResource( 26 ), "land", "idle", SubResource( 27 ), "idle", "jump", SubResource( 28 ), "run", "jump", SubResource( 29 ), "land", "run", SubResource( 30 ), "turn_mid_air", "fall", SubResource( 31 ), "turn_idle", "idle", SubResource( 32 ), "run", "stop", SubResource( 33 ), "stop", "idle", SubResource( 34 ), "land", "jump", SubResource( 37 ), "turn_run", "run", SubResource( 38 ), "run", "fall", SubResource( 39 ), "idle", "run", SubResource( 40 ), "turn_idle", "run", SubResource( 41 ), "jump", "fall", SubResource( 44 ) ]
+transitions = [ "idle", "fall", SubResource( 24 ), "fall", "land", SubResource( 25 ), "land", "idle", SubResource( 26 ), "idle", "jump", SubResource( 27 ), "run", "jump", SubResource( 28 ), "land", "run", SubResource( 29 ), "turn_mid_air", "fall", SubResource( 30 ), "turn_idle", "idle", SubResource( 31 ), "run", "stop", SubResource( 32 ), "stop", "idle", SubResource( 33 ), "land", "jump", SubResource( 34 ), "turn_run", "run", SubResource( 35 ), "run", "fall", SubResource( 36 ), "idle", "run", SubResource( 37 ), "turn_idle", "run", SubResource( 38 ), "jump", "fall", SubResource( 39 ) ]
 graph_offset = Vector2( -68.4122, 0 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=43]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=41]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -579,7 +580,8 @@ shape = SubResource( 2 )
 position = Vector2( 0, -8 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 3 )
-animation = "fall"
+animation = "run"
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fall = SubResource( 4 )
@@ -595,11 +597,10 @@ anims/turn_on_ground = SubResource( 13 )
 anims/turn_on_run = SubResource( 14 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 42 )
+tree_root = SubResource( 40 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 43 )
-parameters/conditions/advance_run = false
+parameters/playback = SubResource( 41 )
 script = ExtResource( 34 )
 [connection signal="area_entered" from="PickupArea" to="PickupArea" method="_on_area_entered"]
 [connection signal="area_exited" from="PickupArea" to="PickupArea" method="_on_area_exited"]
