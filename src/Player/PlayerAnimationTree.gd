@@ -26,7 +26,6 @@ func update_animation(anim_name: String) -> void:
 	if anim_name == "run":
 		var x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
 		if x and x != direction:
-			change_direction(x)
 			return
 	anim_state_machine.travel(anim_name)
 	return
@@ -35,10 +34,11 @@ func update_animation(anim_name: String) -> void:
 func change_direction(new_dir):
 	direction = new_dir
 	if owner.is_on_floor():
-		if anim_state_machine.get_current_node() in ["stop", "land"]:
-			anim_state_machine.start("turn_run")
-		else:
+		print(anim_state_machine.get_current_node(), new_dir)
+		if anim_state_machine.get_current_node() == "idle":
 			anim_state_machine.start("turn_idle")
+		else:
+			anim_state_machine.start("turn_run")
 	elif anim_state_machine.get_current_node() == "fall":
 		anim_state_machine.start("turn_mid_air")
 	else:
