@@ -23,7 +23,13 @@ func _process(delta):
 
 
 func update_animation(anim_name: String) -> void:
+	if anim_name == "run":
+		var x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
+		if x and x != direction:
+			change_direction(x)
+			return
 	anim_state_machine.travel(anim_name)
+	return
 
 
 func change_direction(new_dir):
